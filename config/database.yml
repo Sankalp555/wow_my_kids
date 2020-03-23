@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  <<: *default
+  database: wow_my_kids
+
+test:
+  <<: *default
+  database: <%= ENV['POSTGRES_DB'] %>_wow_my_kids_test
+
+production:
+  <<: *default
